@@ -1,0 +1,11 @@
+{
+  "timeZone": "America/Montevideo",
+  "dependencies": {
+    "libraries": [{
+      "userSymbol": "gsSheetsHelper",
+      "libraryId": "1HoBIdMV0uxYrNLamZW6wixp3riHd5tuCmZ4G6PaRAjWWtZxoYZuckkBy",
+      "version": "17"
+    }]
+  },
+  "exceptionLogging": "STACKDRIVER"
+}
