@@ -5,6 +5,10 @@
       "userSymbol": "gsSheetsHelper",
       "libraryId": "1HoBIdMV0uxYrNLamZW6wixp3riHd5tuCmZ4G6PaRAjWWtZxoYZuckkBy",
       "version": "17"
+    }, {
+      "userSymbol": "SimpleMap",
+      "libraryId": "1fVqW1X_zVInDrDMBpOX-puLtmkViWeseQzGSk8Vb92SXVmPmaABCeL7-",
+      "version": "5"
     }]
   },
   "exceptionLogging": "STACKDRIVER"

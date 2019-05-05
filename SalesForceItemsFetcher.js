@@ -33,6 +33,8 @@ var SalesForceItemsFetcher = function(spreadsheetID, version) {
   this.fetchItems = function() {  
     const CONFIG_PREFIX = "Config";
     
+    var excludeAttributes = new SimpleMap.SimpleMap(false); 
+    excludeAttributes.put(".*attributes\..*");
     var sfConnector = new SalesForceConnector (this.version);    
     var spreadsheet = SpreadsheetApp.openById(this.spreadsheetID);
   
@@ -56,11 +58,12 @@ var SalesForceItemsFetcher = function(spreadsheetID, version) {
       var nextRow = 2;
       var columnCount = 0;
       var objectArrayToSheetTransformer = new gsSheetsHelper.ObjectArrayToSheetTransformer(itemsSheet);      
+      objectArrayToSheetTransformer.setExcludeColumns(excludeAttributes);
       if (!sfConnector.login(clientID, clientSecret, username, password, securityToken))
         throw("Authentication failed");
       
       var requestResult = sfConnector.performRequest(method, "GET", params);
-      while (true) {
+      while (true) {        
         var result = objectArrayToSheetTransformer.objectArrayToBuffer(requestResult.records, nextRow, columnCount);
         if (result.nextRow - nextRow > 0) {
           var targetBuffer = objectArrayToSheetTransformer.getTargetBuffer();
